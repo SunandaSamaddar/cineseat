@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Nothing exotic. CineSeat is a plain App Router project.
 };
 
 export default nextConfig;
