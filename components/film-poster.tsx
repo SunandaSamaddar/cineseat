@@ -16,8 +16,15 @@ export function FilmPoster({ film }: { film: string }) {
 
   const src = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 
-  // AUDIT NOTE (Section G): no `alt` attribute. Deliberate - Lighthouse is
-  // meant to find this on slide 47. Do not fix it early.
+  // FIXED in Section G: the alt attribute was missing entirely.
   // eslint-disable-next-line @next/next/no-img-element
-  return <img className="poster" src={src} width={96} height={140} />;
+  return (
+    <img
+      className="poster"
+      src={src}
+      alt={`Poster for ${film}`}
+      width={96}
+      height={140}
+    />
+  );
 }

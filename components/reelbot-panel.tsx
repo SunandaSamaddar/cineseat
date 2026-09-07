@@ -81,9 +81,13 @@ export function ReelBotPanel() {
       )}
 
       <form onSubmit={handleSubmit} className="reelbot__form">
-        {/* AUDIT NOTE (Section G): this input has no associated label.
-            Deliberate - axe-core is meant to find it. Do not fix it early. */}
+        {/* FIXED in Section G: a placeholder is not a label. It disappears
+            the moment you type, and many screen readers ignore it. */}
+        <label className="visually-hidden" htmlFor="reelbot-input">
+          Ask ReelBot a question
+        </label>
         <input
+          id="reelbot-input"
           className="reelbot__input"
           value={input}
           onChange={handleInputChange}

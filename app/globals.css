@@ -169,11 +169,13 @@ h2 {
   border-color: var(--accent);
 }
 
-/* AUDIT NOTE (Section G): this pairing fails WCAG contrast on purpose.
-   Do not "fix" it early - Lighthouse is meant to find it in Section G. */
+/* FIXED in Section G. Was #565f70 on #262b36 - about 1.8:1, well under
+   WCAG's 4.5:1. Now about 9:1, and no longer relying on colour alone:
+   booked seats are also struck through. */
 .seat--booked {
-  background: #262b36;
-  color: #565f70;
+  background: #552f38;
+  color: #ffe1e6;
+  text-decoration: line-through;
   cursor: not-allowed;
 }
 
@@ -204,7 +206,7 @@ h2 {
 
 .legend__swatch--available { background: var(--surface-2); }
 .legend__swatch--selected { background: var(--accent); }
-.legend__swatch--booked { background: #262b36; }
+.legend__swatch--booked { background: #552f38; }
 
 .seat-map__actions {
   display: flex;
@@ -411,4 +413,22 @@ pre {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Section G - audit fixes
+   --------------------------------------------------------------------------- */
+
+/* Visible to screen readers, invisible on screen. The correct way to label a
+   control whose purpose is obvious to sighted users. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
